@@ -40,12 +40,12 @@
 </nav>
 <div class="container">
     <form action="#" method="post" th:action="@{/usuarios/salvar}" th:object="${usuario}">
-        <input type="hidden" th:field="*{usuarioId}">
+        <input type="hidden" th:field="*{id}">
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label">Nome:</label>
             <div class="col-auto">
                 <label>
-                    <input type="text"  th:field="*{nomeUsuario}">
+                    <input type="text"  th:field="*{nome}">
                 </label>
             </div>
         </div>
@@ -63,58 +63,58 @@
                 <legend class="col-form-label col-sm-2 pt-0">Sexo:</legend>
                 <div class="col-auto">
                     <div class="form-check">
-                        <label for="masculino"></label><input type="radio" th:field="*{sexo}" id="MASCULINO" value="MASCULINO"> MASCULINO
+                        <label for="masculino"></label><input type="radio" th:field="*{sexo}" id="MASCULINO" value="M"> MASCULINO
 
-                        <label for="feminino"></label><input type="radio" th:field="*{sexo}" id="FEMININO" value="FEMININO"> FEMININO
+                        <label for="feminino"></label><input type="radio" th:field="*{sexo}" id="FEMININO" value="F"> FEMININO
 
-                        <label for="duvida"></label><input type="radio" th:field="*{sexo}" id="DUVIDA" value="DUVIDA"> DUVIDA
+
                     </div>
                 </div>
             </div>
         </fieldset>
-        <div class="form-group row" th:object="${endereco}">
-        <div class="form-group row">
+<!--        <div class="form-group row" th:object="${endereco}">-->
+<!--        <div class="form-group row">-->
 
-            <div class="col-auto" >
-                <label class="col-form-label">Cep:
-                    <input type="text"  th:field="*{cep}">
-                </label>
-            </div>
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Cep:-->
+<!--                    <input type="text"  th:field="*{cep}">-->
+<!--                </label>-->
+<!--            </div>-->
 
-            <div class="col-auto" >
-                <label class="col-form-label">Rua:
-                    <input type="text"  th:field="*{logradouro}">
-                </label>
-            </div>
-            <div class="col-auto" >
-                <label class="col-form-label">Número:
-                    <input type="text"  th:field="*{numero}">
-                </label>
-            </div>
-            <div class="col-auto" >
-                <label class="col-form-label">Complemento:
-                    <input type="text"  th:field="*{complemento}">
-                </label>
-            </div>
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Rua:-->
+<!--                    <input type="text"  th:field="*{logradouro}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Número:-->
+<!--                    <input type="text"  th:field="*{numero}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Complemento:-->
+<!--                    <input type="text"  th:field="*{complemento}">-->
+<!--                </label>-->
+<!--            </div>-->
 
-        </div>
-            <div class="col-auto" >
-                <label class="col-form-label">Bairro:
-                    <input type="text"  th:field="*{bairro}">
-                </label>
-            </div>
-            <div class="col-auto" >
-                <label class="col-form-label">Cidade:
-                    <input type="text"  th:field="*{cidade}">
-                </label>
-            </div>
-            <div class="col-auto" >
-                <label class="col-form-label">Estado:
-                    <input type="text"  th:field="*{estado}">
-                </label>
-            </div>
+<!--        </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Bairro:-->
+<!--                    <input type="text"  th:field="*{bairro}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Cidade:-->
+<!--                    <input type="text"  th:field="*{cidade}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Estado:-->
+<!--                    <input type="text"  th:field="*{estado}">-->
+<!--                </label>-->
+<!--            </div>-->
 
-        </div>
+<!--        </div>-->
 
         <div class="container">
             <div class="row justify-content-end">

@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS usuarios(
                          `nome` VARCHAR(45) not null ,
                          `idade` date not null ,
                          `sexo` enum('M', 'F'),
-                         `endereco` VARCHAR(45) not null ,
                          PRIMARY KEY (`id`)
 )
     ENGINE = InnoDB;

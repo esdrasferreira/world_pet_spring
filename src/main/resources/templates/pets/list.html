@@ -42,8 +42,8 @@
                     <label>
                         <select  class="custom-select" name="usuario_id">
 
-                            <option th:each="usuario: ${usuarios}" th:value="${usuario.usuarioId}" th:text="${usuario.nomeUsuario}"
-                                    th:selected="${usuario.usuarioId == usuarioID}">
+                            <option th:each="usuario: ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"
+                                    th:selected="${usuario.id == usuarioID}">
                             </option>
 
                         </select>
@@ -79,7 +79,7 @@
 
         <form method="get" action="/pets/editar/${pet.id}">
             <tr th:each="pet: ${pets}">
-                <th th:text="${pet.petId}"></th>
+                <th th:text="${pet.id}"></th>
                 <th th:text="${pet.nomePet}"></th>
                 <th th:text="${pet.idade}"></th>
                 <th th:text="${pet.raca}"></th>

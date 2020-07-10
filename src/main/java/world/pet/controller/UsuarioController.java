@@ -28,7 +28,7 @@ public class UsuarioController {
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar(ModelAndView mv){
         mv.addObject("usuario", new Usuario());
-        mv.addObject("endereco", new Endereco());
+//        mv.addObject("endereco", new Endereco());
         mv.setViewName("usuarios/form");
         return mv;
     }
@@ -44,7 +44,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public ModelAndView salvar(@ModelAttribute Usuario usuario, @ModelAttribute Endereco endereco){
+    public ModelAndView salvar(@ModelAttribute Usuario usuario){
 
 
         usuarioRepository.save(usuario);

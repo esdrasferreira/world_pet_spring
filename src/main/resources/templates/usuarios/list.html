@@ -45,7 +45,7 @@
         <th  scope="col">nome</th>
         <th  scope="col">idade</th>
         <th  scope="col">sexo</th>
-        <th  scope="col">endereço</th>
+
 
     </tr>
     </thead>
@@ -54,13 +54,13 @@
 
         <form method="get" action="/usuarios/editar/${usuario.id}">
              <tr th:each="usuario: ${usuarios}">
-                <th th:text="${usuario.usuarioId}"></th>
-                <th th:text="${usuario.nomeUsuario}"></th>
+                <th th:text="${usuario.id}"></th>
+                <th th:text="${usuario.nome}"></th>
                 <th th:text="${usuario.idade}"></th>
                 <th th:text="${usuario.sexo}"></th>
-                <th># ?? #</th>
-                <td><a th:href="@{ /usuarios/editar/{id} (id=${{usuario.usuarioId}}) }" th:text="Editar"></a></td>
-                 <td><a class="btn btn-outline-primary" role="button" th:href="@{ /usuarios/excluir/{id} (id=${{usuario.usuarioId}}) }" th:text="Excluir">Link</a></td>
+
+                <td><a th:href="@{ /usuarios/editar/{id} (id=${{usuario.id}}) }" th:text="Editar"></a></td>
+                 <td><a class="btn btn-outline-primary" role="button" th:href="@{ /usuarios/excluir/{id} (id=${{usuario.id}}) }" th:text="Excluir">Link</a></td>
             </tr>
         </form>
 

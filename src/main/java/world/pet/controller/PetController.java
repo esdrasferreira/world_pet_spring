@@ -52,8 +52,8 @@ public class PetController {
         mv.addObject("usuarioID", usuario_id);
 
 
-//        Iterable<PetDTO> petDTOIterable = petDTORepository.findAllPetsAndUsersById(usuario_id);
-//        mv.addObject("pets",petDTOIterable);
+        Iterable<Pet> petIterable = petRepository.findAllPetsAndUsersById(usuario_id);
+        mv.addObject("pets",petIterable);
         mv.setViewName("pets/list");
         return mv;
     }

@@ -13,8 +13,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
   @Transactional
   @Modifying
-  @Query(
-      value = "select * from pet_world_jpa.usuarios left join pet_world_jpa.pet_usuario\n"
+  @Query(value = "select * from pet_world_jpa.usuarios left join pet_world_jpa.pet_usuario\n"
               + "on (pet_world_jpa.usuarios.id = pet_world_jpa.pet_usuario.usuario_id)\n"
               + "where pet_id like :pet_id", nativeQuery = true)
   Usuario findUserByPetId(@Param("pet_id") Long id);
