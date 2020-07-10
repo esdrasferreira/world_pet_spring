@@ -1,0 +1,137 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/885d74eed9.js" crossorigin="anonymous"></script><!-- font-awesome 5.11 -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <title>Pet world!</title>
+</head>
+<body class="p-3 mb-2 bg-secondary">
+<!-- Just an image -->
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav justify-content-left">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="/pets/meus_pets">Meus_Pets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/pets">List_Pets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pets/cadastrar">Cadastro_Pets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/usuarios">Usuários</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/usuarios/cadastrar">Cadastro-usuários</a>
+            </li>
+
+    </ul>
+
+</nav>
+<div class="container">
+    <form action="#" method="post" th:action="@{/usuarios/salvar}" th:object="${usuario}">
+        <input type="hidden" th:field="*{usuarioId}">
+        <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Nome:</label>
+            <div class="col-auto">
+                <label>
+                    <input type="text"  th:field="*{nomeUsuario}">
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Idade:</label>
+            <div class="col-auto">
+                <label>
+                    <input type="date" th:field="*{idade}">
+                </label>
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Sexo:</legend>
+                <div class="col-auto">
+                    <div class="form-check">
+                        <label for="masculino"></label><input type="radio" th:field="*{sexo}" id="MASCULINO" value="MASCULINO">MASCULINO
+                    </div>
+                    <div class="form-check">
+                        <label for="feminino"></label><input type="radio" th:field="*{sexo}" id="FEMININO" value="FEMININO">FEMININO
+                    </div>
+                    <div class="form-check disabled">
+                        <label for="duvida"></label><input type="radio" th:field="*{sexo}" id="DUVIDA" value="DUVIDA">DUVIDA
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+<!--        <div class="form-group row" th:object="${endereco}">-->
+<!--        <div class="form-group row">-->
+
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Cep:-->
+<!--                    <input type="text"  th:field="*{cep}">-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Rua:-->
+<!--                    <input type="text"  th:field="*{logradouro}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Número:-->
+<!--                    <input type="text"  th:field="*{numero}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Complemento:-->
+<!--                    <input type="text"  th:field="*{complemento}">-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Bairro:-->
+<!--                    <input type="text"  th:field="*{bairro}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Cidade:-->
+<!--                    <input type="text"  th:field="*{cidade}">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="col-auto" >-->
+<!--                <label class="col-form-label">Estado:-->
+<!--                    <input type="text"  th:field="*{estado}">-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

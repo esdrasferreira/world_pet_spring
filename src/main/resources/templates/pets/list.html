@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/885d74eed9.js" crossorigin="anonymous"></script><!-- font-awesome 5.11 -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <title>Pet world!</title>
+</head>
+<body class="p-3 mb-2 bg-secondary">
+<!-- Just an image -->
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav justify-content-left">
+        <li class="nav-item">
+            <a class="nav-link active" href="/pets/meus_pets">Meus_Pets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/pets">List_Pets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pets/cadastrar">Cadastro_Pets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/usuarios">Usuários</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/usuarios/cadastrar">Cadastro-usuários</a>
+        </li>
+
+<!--  inicio      -->
+        <li class="nav-item">
+        <form action="#" method="post" th:action="@{/pets/meus_pets2}" th:object="${usuarioID}">
+
+
+                    <label>
+                        <select  class="custom-select" name="usuario_id">
+
+                            <option th:each="usuario: ${usuarios}" th:value="${usuario.usuarioId}" th:text="${usuario.nomeUsuario}"
+                                    th:selected="${usuario.usuarioId == usuarioID}">
+                            </option>
+
+                        </select>
+                    </label>
+
+                <button type="submit" class="btn btn-primary">Buscar</button>
+
+        </form>
+        </li>
+        <!--  fim      -->
+
+
+    </ul>
+
+</nav>
+<table class="table table-dark">
+
+    <thead>
+    <tr >
+        <th  scope="col">id</th>
+        <th  scope="col">nome</th>
+        <th  scope="col">idade</th>
+        <th  scope="col">raça</th>
+        <th  scope="col">sexo</th>
+        <th  scope="col">tipo</th>
+        <th  scope="col">adoção</th>
+        <th  scope="col">dono</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+        <form method="get" action="/pets/editar/${pet.id}">
+            <tr th:each="pet: ${pets}">
+                <th th:text="${pet.petId}"></th>
+                <th th:text="${pet.nomePet}"></th>
+                <th th:text="${pet.idade}"></th>
+                <th th:text="${pet.raca}"></th>
+                <th th:text="${pet.sexo}"></th>
+                <th th:text="${pet.tipo}"></th>
+                <th th:text="${pet.status}"></th>
+                <th th:text="${pet.nomeUsuario}"></th>
+                <td><a th:href="@{ /pets/editar/{id}  (id=${{pet.petId}}) }" th:text="Editar"></a></td>
+                <td><a th:href="@{ /pets/excluir/{id} (id=${{pet.petId}}) }" th:text="Excluir"></a></td>
+            </tr>
+        </form>
+
+    </tbody>
+</table>
+</body>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
+
