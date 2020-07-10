@@ -4,10 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -30,4 +34,12 @@ public class Pet {
 
     @Enumerated(EnumType.STRING)
     private StatusAdocao status;
+
+    @ManyToMany@JoinTable(name = "pet_usuario",
+    joinColumns = @JoinColumn(name = "pet_id"),
+    inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+    private List<Usuario> usuarioList;
+
+
+
 }

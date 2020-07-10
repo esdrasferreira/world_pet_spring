@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data@AllArgsConstructor@NoArgsConstructor
 @ToString
@@ -25,6 +26,8 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
+    @ManyToMany(mappedBy = "usuarioList")
+    private List<Pet> petList;
 
 
 }

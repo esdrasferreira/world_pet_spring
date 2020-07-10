@@ -5,7 +5,7 @@
 
 
 CREATE TABLE IF NOT EXISTS usuarios(
-                         `id` INT NOT NULL AUTO_INCREMENT,
+                         `id` BIGINT NOT NULL AUTO_INCREMENT,
                          `nome` VARCHAR(45) not null ,
                          `idade` date not null ,
                          `sexo` enum('M', 'F'),

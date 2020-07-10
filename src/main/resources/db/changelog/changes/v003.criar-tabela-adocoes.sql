@@ -5,10 +5,10 @@
 
 
 CREATE TABLE IF NOT EXISTS adocoes(
-                         `id` INT NOT NULL AUTO_INCREMENT,
-                         `pet_id` INT NOT NULL,
-                         `usuario_id` INT NOT NULL,
-                         `antigo_usuario_id` INT NOT NULL,
+                         `id` BIGINT NOT NULL AUTO_INCREMENT,
+                         `pet_id` BIGINT NOT NULL,
+                         `usuario_id` BIGINT NOT NULL,
+                         `antigo_usuario_id` BIGINT NOT NULL,
                          `data_adocao` DATE NOT NULL ,
                          `informacoes` VARCHAR(255) NULL,
                          PRIMARY KEY (`id`)

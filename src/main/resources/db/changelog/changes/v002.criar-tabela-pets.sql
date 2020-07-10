@@ -5,7 +5,7 @@
 
 
 CREATE TABLE IF NOT EXISTS pets(
-                         `id` INT NOT NULL AUTO_INCREMENT,
+                         `id` BIGINT NOT NULL AUTO_INCREMENT,
                          `nome` VARCHAR(45) not null ,
                          `tipo` VARCHAR(45) not null ,
                          `idade` date not null ,
