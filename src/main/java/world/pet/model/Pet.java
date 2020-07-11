@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,6 +21,9 @@ import java.util.Map;
 @Entity
 @Table(name = "pets")
 public class Pet {
+
+
+
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long petId;
 
@@ -35,6 +39,9 @@ public class Pet {
 
     @Enumerated(EnumType.STRING)
     private StatusAdocao status;
+
+    private Long usuarioId;
+    private String usuarioNome;
 
     @ManyToMany(fetch = FetchType.EAGER)@JoinTable(name = "pet_usuario",
     joinColumns = @JoinColumn(name = "pet_id"),

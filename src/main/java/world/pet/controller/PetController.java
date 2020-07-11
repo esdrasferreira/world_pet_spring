@@ -1,6 +1,5 @@
 package world.pet.controller;
 
-import liquibase.pro.packaged.U;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +22,13 @@ public class PetController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+
     @GetMapping
     public ModelAndView listar(ModelAndView mv){
 
         Iterable<Pet> petIterable = petRepository.findAll();
 
-        System.out.println("imprimindo pets :::: "+ petIterable.toString());
+
 
         mv.addObject("pets",petIterable);
         mv.setViewName("pets/all");
@@ -88,7 +88,8 @@ public class PetController {
     public ModelAndView salvar(@RequestParam Long usuario_id, Pet pet){
 
         Usuario usuario = usuarioRepository.getOne(usuario_id);
-
+        pet.setUsuarioId(usuario_id);
+        pet.setUsuarioNome(usuario.getUsuarioNome());
 
         pet.setUsuarioList(Arrays.asList(usuario));
 

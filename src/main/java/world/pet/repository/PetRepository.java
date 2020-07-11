@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import world.pet.model.Pet;
 
+import javax.persistence.Tuple;
+import java.util.List;
+
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
@@ -18,4 +21,7 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 //          + "left join usuarios on (pet_usuario.usuario_id = usuarios.usuario_id)\n"
 //          + "where usuarios.usuario_id like :id")
 //  Iterable<Pet> findAllPetsAndUsersById(@Param("id") Long petId);
+
+
+
 }
