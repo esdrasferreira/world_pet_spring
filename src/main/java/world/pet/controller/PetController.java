@@ -87,10 +87,8 @@ public class PetController {
     @PostMapping("/salvar")
     public ModelAndView salvar(@RequestParam Long usuario_id, Pet pet){
 
+        Usuario usuario = usuarioRepository.getOne(usuario_id);
 
-
-        Usuario usuario = new Usuario();
-        usuario.setId(usuario_id);
 
         pet.setUsuarioList(Arrays.asList(usuario));
 

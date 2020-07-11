@@ -26,7 +26,7 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
-    @ManyToMany(mappedBy = "usuarioList")
+    @ManyToMany(mappedBy = "usuarioList", fetch = FetchType.EAGER)
     private List<Pet> petList;
 
 

@@ -40,15 +40,15 @@
     </nav>
 <div class="container">
     <form action="#" method="post" th:action="@{/pets/salvar}" th:object="${pet}">
-        <input type="hidden" th:field="*{petId}">
+<!--        <input type="hidden" th:field="*{petId}">-->
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dono:</label>
             <div class="col-auto">
                 <label>
                     <select  class="custom-select" name="usuario_id">
 
-                            <option th:each="usuario: ${usuarios}" th:value="${usuario.usuarioId}" th:text="${usuario.nomeUsuario}"
-                            th:selected="${usuario.usuarioId == usuarioId}"
+                            <option th:each="usuario: ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"
+                            th:selected="${usuario.id == usuarioId}"
                             ></option>
 
                     </select>
@@ -59,7 +59,7 @@
             <label class="col-sm-2 col-form-label">Nome:</label>
             <div class="col-auto">
                 <label>
-                    <input type="text" th:field="*{nomePet}">
+                    <input type="text" th:field="*{nome}">
                 </label>
             </div>
         </div>
@@ -94,10 +94,10 @@
                         <legend class="col-form-label col-sm-2 pt-0">Sexo:</legend>
                     </div>
                     <div class="col-auto">
-                        <label for="masculino"></label><input class="form-check-input" type="radio" th:field="*{sexo}" id="masculino" value="MASCULINO"> Masc
+                        <label for="masculino"></label><input class="form-check-input" type="radio" th:field="*{sexo}" id="masculino" value="M"> Masc
                     </div>
                     <div class="col-auto">
-                        <label for="feminino"></label><input class="form-check-input" type="radio" th:field="*{sexo}" id="feminino" value="FEMININO"> Fem
+                        <label for="feminino"></label><input class="form-check-input" type="radio" th:field="*{sexo}" id="feminino" value="F"> Fem
                     </div>
                 </div>
             </div>

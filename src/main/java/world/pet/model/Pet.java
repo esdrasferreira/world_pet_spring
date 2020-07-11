@@ -20,11 +20,12 @@ import java.util.Map;
 @Entity
 @Table(name = "pets")
 public class Pet {
-    @Id
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
     private String tipo;
+    private String raca;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate idade;
@@ -35,7 +36,7 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     private StatusAdocao status;
 
-    @ManyToMany@JoinTable(name = "pet_usuario",
+    @ManyToMany(fetch = FetchType.EAGER)@JoinTable(name = "pet_usuario",
     joinColumns = @JoinColumn(name = "pet_id"),
     inverseJoinColumns = @JoinColumn(name = "usuario_id"))
     private List<Usuario> usuarioList;
