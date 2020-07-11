@@ -21,9 +21,9 @@ import java.util.Map;
 @Table(name = "pets")
 public class Pet {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long petId;
 
-    private String nome;
+    private String petNome;
     private String tipo;
     private String raca;
 

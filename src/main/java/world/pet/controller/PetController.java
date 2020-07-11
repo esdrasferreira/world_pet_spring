@@ -43,20 +43,20 @@ public class PetController {
         return mv;
     }
 
-    @PostMapping("/meus_pets2")
-    public ModelAndView meusPets2(ModelAndView mv, @RequestParam(required = false, defaultValue = "1")Long usuario_id){
-        Iterable<Usuario> usuarios = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarios);
-
-
-        mv.addObject("usuarioID", usuario_id);
-
-
-        Iterable<Pet> petIterable = petRepository.findAllPetsAndUsersById(usuario_id);
-        mv.addObject("pets",petIterable);
-        mv.setViewName("pets/list");
-        return mv;
-    }
+//    @PostMapping("/meus_pets2")
+//    public ModelAndView meusPets2(ModelAndView mv, @RequestParam(required = false, defaultValue = "1")Long usuario_id){
+//        Iterable<Usuario> usuarios = usuarioRepository.findAll();
+//        mv.addObject("usuarios", usuarios);
+//
+//
+//        mv.addObject("usuarioID", usuario_id);
+//
+//
+//        Iterable<Pet> petIterable = petRepository.findAllPetsAndUsersById(usuario_id);
+//        mv.addObject("pets",petIterable);
+//        mv.setViewName("pets/list");
+//        return mv;
+//    }
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar(ModelAndView mv){
@@ -75,7 +75,7 @@ public class PetController {
         mv.addObject("pet",pet.get());
 
         Usuario usuarioId = usuarioRepository.findUserByPetId(id);
-        mv.addObject("usuarioId", usuarioId.getId());
+        mv.addObject("usuarioId", usuarioId.getUsuarioId());
 
         Iterable<Usuario> usuarioIterable = usuarioRepository.findAll();
         mv.addObject("usuarios", usuarioIterable);
@@ -94,13 +94,13 @@ public class PetController {
 
         petRepository.save(pet);
 
-        return new ModelAndView("redirect:/pets/meus_pets");
+        return new ModelAndView("redirect:/pets");
     }
 
     @GetMapping("excluir/{id}")
     public ModelAndView excluir(ModelAndView mv, @PathVariable Long id){
         Pet pet = new Pet();
-        pet.setId(id);
+        pet.setPetId(id);
         petRepository.delete(pet);
 
         return new ModelAndView("redirect:/pets");

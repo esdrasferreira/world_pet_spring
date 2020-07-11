@@ -57,7 +57,7 @@
         <form method="get" action="/pets/editar/${pet.id}">
             <tr  th:each="pet: ${pets}">
                 <td th:text="${pet.petId}"></td>
-                <td th:text="${pet.nomePet}"></td>
+                <td th:text="${pet.petNome}"></td>
                 <td th:text="${pet.idade}"></td>
                 <td th:text="${pet.raca}"></td>
                 <td th:text="${pet.sexo}"></td>

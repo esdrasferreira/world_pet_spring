@@ -16,9 +16,9 @@ import java.util.List;
 public class Usuario {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long usuarioId;
 
-    private String nome;
+    private String usuarioNome;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate idade;

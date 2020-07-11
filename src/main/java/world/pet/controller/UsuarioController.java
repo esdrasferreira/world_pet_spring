@@ -54,7 +54,7 @@ public class UsuarioController {
     @GetMapping("excluir/{id}")
     public ModelAndView excluir(ModelAndView mv, @PathVariable Long id){
         Usuario usuario = new Usuario();
-        usuario.setId(id);
+        usuario.setUsuarioId(id);
         usuarioRepository.delete(usuario);
 
         return new ModelAndView("redirect:/usuarios");

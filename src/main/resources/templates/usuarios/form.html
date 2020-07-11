@@ -40,12 +40,12 @@
 </nav>
 <div class="container">
     <form action="#" method="post" th:action="@{/usuarios/salvar}" th:object="${usuario}">
-        <input type="hidden" th:field="*{id}">
+
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label">Nome:</label>
             <div class="col-auto">
                 <label>
-                    <input type="text"  th:field="*{nome}">
+                    <input type="text"  th:field="*{usuarioNome}">
                 </label>
             </div>
         </div>
