@@ -42,8 +42,8 @@
                     <label>
                         <select  class="custom-select" name="usuario_id">
 
-                            <option th:each="usuario: ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"
-                                    th:selected="${usuario.id == usuarioID}">
+                            <option th:each="usuario: ${usuarios}" th:value="${usuario.usuarioId}" th:text="${usuario.usuarioNome}"
+                                    th:selected="${usuario.usuarioId == usuarioID}">
                             </option>
 
                         </select>
@@ -79,14 +79,14 @@
 
         <form method="get" action="/pets/editar/${pet.id}">
             <tr th:each="pet: ${pets}">
-                <th th:text="${pet.id}"></th>
-                <th th:text="${pet.nomePet}"></th>
+                <th th:text="${pet.petId}"></th>
+                <th th:text="${pet.petNome}"></th>
                 <th th:text="${pet.idade}"></th>
                 <th th:text="${pet.raca}"></th>
                 <th th:text="${pet.sexo}"></th>
                 <th th:text="${pet.tipo}"></th>
                 <th th:text="${pet.status}"></th>
-                <th th:text="${pet.nomeUsuario}"></th>
+                <th th:text="${pet.usuarioNome}"></th>
                 <td><a th:href="@{ /pets/editar/{id}  (id=${{pet.petId}}) }" th:text="Editar"></a></td>
                 <td><a th:href="@{ /pets/excluir/{id} (id=${{pet.petId}}) }" th:text="Excluir"></a></td>
             </tr>
