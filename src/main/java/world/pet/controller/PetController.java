@@ -40,6 +40,9 @@ public class PetController {
         Iterable<Usuario> usuarios = usuarioRepository.findAll();
         mv.addObject("usuarios", usuarios);
 
+        Iterable<Pet> petIterable = petRepository.findAll();
+        mv.addObject("pets",petIterable);
+        mv.setViewName("pets/list");
         return mv;
     }
 

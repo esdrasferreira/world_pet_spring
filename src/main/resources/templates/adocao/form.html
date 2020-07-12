@@ -41,9 +41,10 @@
     </nav>
 
     <form action="#" method="post" th:action="@{/adocao/salvar}" th:object="${pet}">
+
         <input type="hidden" name="id" id="id" th:field="*{petId}">
 
-        <input type="hidden" name="antigo_dono_id" id="antigo_dono_id" th:value="${usuarioID}">
+
         <div class="form-group row">
             <label class="col-md-auto col-form-label">
                 <h5 class="card-title">Usuário:</h5>
@@ -54,7 +55,7 @@
 
                             <option
                                     th:each="usuario: ${usuarios}"
-                                    th:value="${usuario.usuarioId}" th:text="${usuario.nomeUsuario}"
+                                    th:value="${usuario.usuarioId}" th:text="${usuario.usuarioNome}"
 
                             ></option>
 
@@ -67,15 +68,15 @@
             <img src="http://localhost:8080/images/bull.jpeg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">
-                    <span th:text="*{nomePet}"></span>
+                    <span th:text="*{petNome}"></span>
                 </h5>
                 <h6 class="card-subtitle mb-2 text-muted">
                    Tipo: <span th:text="*{tipo}"></span><br>
                    Raça: <span th:text="*{raca}"></span><br>
                    Idade: <span th:text="*{idade}"></span><br>
                     Sexo: <span th:text="*{sexo}"></span><br>
-                    Dono: <span th:text="${nome_dono}"></span><br>
-
+                    Dono: <span th:text="${pet.usuarioNome}"></span><br>
+                    <input type="hidden" name="antigo_dono_id" id="antigo_dono_id" th:value="${pet.usuarioId}">
                 </h6>
 
                 <button type="submit" class="btn btn-primary">Adotar</button>
