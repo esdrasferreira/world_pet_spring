@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import world.pet.model.Pet;
 
-import javax.persistence.Tuple;
-import java.util.Collection;
 import java.util.List;
 
 @Repository

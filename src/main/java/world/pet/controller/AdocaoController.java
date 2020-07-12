@@ -12,8 +12,6 @@ import world.pet.repository.PetRepository;
 import world.pet.repository.UsuarioRepository;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/adocao")
