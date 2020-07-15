@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS pets(
                          `idade` date not null ,
                          `sexo` enum('M', 'F'),
                          `status` enum('DISPONIVEL', 'INDISPONIVEL'),
+                         `usuario_id` BIGINT NOT NULL,
+                         `usuario_nome` VARCHAR(45) not null ,
                          PRIMARY KEY (`pet_id`)
 )
     ENGINE = InnoDB;

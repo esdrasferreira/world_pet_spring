@@ -28,8 +28,6 @@ public class PetController {
 
         Iterable<Pet> petIterable = petRepository.findAll();
 
-
-
         mv.addObject("pets",petIterable);
         mv.setViewName("pets/all");
         return mv;
