@@ -38,6 +38,7 @@
 <div class="container">
     <form action="#" method="post" th:action="@{/pets/salvar}" th:object="${pet}">
         <input type="hidden" name="usuario_id" id="usuario_id" th:value="${usuario.usuarioId}">
+        <input type="hidden" name="pet_id" id="pet_id" th:field="*{petId}">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Dono:</label>
 

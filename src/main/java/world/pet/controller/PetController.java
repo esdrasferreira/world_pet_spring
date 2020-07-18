@@ -88,20 +88,22 @@ public class PetController {
     }
 
     @GetMapping("editar/{id}")
-    public ModelAndView editar(ModelAndView mv, @PathVariable Long id){
-        Optional<Pet> pet = petRepository.findById(id);
+    public ModelAndView editar(ModelAndView mv, @PathVariable Long id, HttpSession session){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if(session.getAttribute("usuario") == null){
 
+            return new ModelAndView("redirect:/pets");
+    } else {
 
-        mv.addObject("pet",pet.get());
+      Optional<Pet> pet = petRepository.findById(id);
 
-        Usuario usuarioId = usuarioRepository.findUserByPetId(id);
-        mv.addObject("usuarioId", usuarioId.getUsuarioId());
+      mv.addObject("pet", pet.get());
 
-        Iterable<Usuario> usuarioIterable = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarioIterable);
+      mv.addObject("usuario", usuario);
 
-        mv.setViewName("pets/form");
-        return mv;
+      mv.setViewName("pets/form");
+      return mv;
+        }
     }
 
     @PostMapping("/salvar")
