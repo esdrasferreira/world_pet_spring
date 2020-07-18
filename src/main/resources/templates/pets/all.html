@@ -65,7 +65,7 @@
                  <td th:text="${pet.status}"></td>
                 <td th:text="${pet.usuarioNome}"></td>
 
-                <td><a th:href="@{ /pets/detalhes/{id} (id=${{pet.petId}}) }" th:text="Detalhes"></a></td>
+                <td><a th:href="@{ /adocao/adotar/{id} (id=${{pet.petId}}) }" th:text="Detalhes"></a></td>
                 <td><a class="btn btn-outline-primary" role="button" th:href="@{/adocao/adotar/{id} (id=${{pet.petId}}) }" th:text="Adotar">Link</a></td>
             </tr>
         </form>

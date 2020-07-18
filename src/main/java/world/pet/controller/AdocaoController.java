@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import world.pet.model.Adocao;
 import world.pet.model.Pet;
+import world.pet.model.StatusAdocao;
 import world.pet.model.Usuario;
 import world.pet.repository.AdocaoRepository;
 import world.pet.repository.PetRepository;
@@ -29,16 +30,23 @@ public class AdocaoController {
 
     @GetMapping("/adotar/{id}")
     public ModelAndView cadastrar(ModelAndView mv, @PathVariable Long id, HttpSession session){
-
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-
-        mv.addObject("usuario", usuario);
-
         Pet pet = petRepository.getOne(id);
-        mv.addObject("pet",pet);
 
-        mv.setViewName("adocao/form");
-        return mv;
+        if(session.getAttribute("usuario") == null){
+
+            return new ModelAndView("redirect:/pets");
+    } else if(pet.getStatus() == StatusAdocao.DISPONIVEL && !pet.getUsuarioNome().equals(usuario.getUsuarioNome())){
+
+      mv.addObject("usuario", usuario);
+
+      mv.addObject("pet", pet);
+
+      mv.setViewName("adocao/form");
+      return mv;
+        }else {
+            return new ModelAndView("redirect:/pets/listar");
+        }
     }
 
     @PostMapping("/salvar")
