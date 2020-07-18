@@ -52,37 +52,37 @@ public class PetController {
     }
 
     @GetMapping("/meus_pets")
-    public ModelAndView meusPets(ModelAndView mv){
-        Iterable<Usuario> usuarios = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarios);
+    public ModelAndView meusPets(ModelAndView mv, HttpSession session){
 
-        Iterable<Pet> petIterable = petRepository.findAll();
-        mv.addObject("pets",petIterable);
-        mv.setViewName("pets/meus");
-        return mv;
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if(session.getAttribute("usuario") == null){
+
+            return new ModelAndView("redirect:/pets");
+    } else {
+
+
+
+      Iterable<Pet> petIterable = petRepository.findAllPetsById(usuario.getUsuarioId());
+      mv.addObject("pets", petIterable);
+      mv.setViewName("pets/meus");
+      return mv;
+        }
     }
 
-    @PostMapping("/meus_pets2")
-    public ModelAndView meusPets2(ModelAndView mv, @RequestParam(required = false, defaultValue = "1")Long usuario_id){
-        Iterable<Usuario> usuarios = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarios);
-
-
-        mv.addObject("usuarioID", usuario_id);
-
-
-        Iterable<Pet> petIterable = petRepository.findAllPetsById(usuario_id);
-        mv.addObject("pets",petIterable);
-        mv.setViewName("pets/meus");
-        return mv;
-    }
 
     @GetMapping("/cadastrar")
-    public ModelAndView cadastrar(ModelAndView mv){
-        Iterable<Usuario> usuarios = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarios);
-        mv.addObject("pet", new Pet());
-        mv.setViewName("pets/form");
+    public ModelAndView cadastrar(ModelAndView mv, HttpSession session){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if(session.getAttribute("usuario") == null){
+
+            return new ModelAndView("redirect:/pets");
+    } else {
+
+      mv.addObject("usuario", usuario);
+
+      mv.addObject("pet", new Pet());
+      mv.setViewName("pets/form");
+        }
         return mv;
     }
 

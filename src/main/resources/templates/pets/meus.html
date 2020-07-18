@@ -34,26 +34,8 @@
             <a class="nav-link" href="/login/logout">Logout</a>
         </li>
 
-<!--  inicio      -->
-        <li class="nav-item">
-        <form action="#" method="post" th:action="@{/pets/meus_pets2}" th:object="${usuarioID}">
 
 
-                    <label>
-                        <select  class="custom-select" name="usuario_id">
-
-                            <option th:each="usuario: ${usuarios}" th:value="${usuario.usuarioId}" th:text="${usuario.usuarioNome}"
-                                    th:selected="${usuario.usuarioId == usuarioID}">
-                            </option>
-
-                        </select>
-                    </label>
-
-                <button type="submit" class="btn btn-primary">Buscar</button>
-
-        </form>
-        </li>
-        <!--  fim      -->
 
 
     </ul>

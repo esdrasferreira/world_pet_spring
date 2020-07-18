@@ -59,44 +59,4 @@ public class LoginController {
 
     }
 
-
-
-
-
-
-//    @GetMapping("/cadastrar")
-//    public ModelAndView cadastrar(ModelAndView mv){
-//        mv.addObject("usuario", new Usuario());
-////        mv.addObject("endereco", new Endereco());
-//        mv.setViewName("usuarios/form");
-//        return mv;
-//    }
-//
-//
-//    @GetMapping("editar/{id}")
-//    public ModelAndView editar(ModelAndView mv, @PathVariable Long id){
-//        Optional<Usuario> usuario = usuarioRepository.findById(id);
-//
-//        mv.addObject("usuario",usuario.get());
-//
-//        mv.setViewName("usuarios/form_editar");
-//        return mv;
-//    }
-//
-//    @PostMapping("/salvar")
-//    public ModelAndView salvar(@ModelAttribute Usuario usuario){
-//
-//
-//        usuarioRepository.save(usuario);
-//        return new ModelAndView("redirect:/usuarios");
-//    }
-//
-//    @GetMapping("excluir/{id}")
-//    public ModelAndView excluir(ModelAndView mv, @PathVariable Long id){
-//        Usuario usuario = new Usuario();
-//        usuario.setUsuarioId(id);
-//        usuarioRepository.delete(usuario);
-//
-//        return new ModelAndView("redirect:/usuarios");
-//    }
 }
