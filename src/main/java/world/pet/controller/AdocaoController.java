@@ -29,14 +29,10 @@ public class AdocaoController {
 
     @GetMapping("/adotar/{id}")
     public ModelAndView cadastrar(ModelAndView mv, @PathVariable Long id, HttpSession session){
-//        Iterable<Usuario>usuarioIterable = usuarioRepository.findAll();
-//        mv.addObject("usuarios", usuarioIterable); //envio todos os usuarios
 
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-    System.out.println("xxxxxxxxxxx usuario da sessão: "+ usuario.getUsuarioNome());
 
         mv.addObject("usuario", usuario);
-
 
         Pet pet = petRepository.getOne(id);
         mv.addObject("pet",pet);

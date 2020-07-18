@@ -11,6 +11,7 @@ import world.pet.repository.UsuarioRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 @Controller
@@ -110,7 +111,7 @@ public class PetController {
         pet.setUsuarioId(usuario_id);
         pet.setUsuarioNome(usuario.getUsuarioNome());
 
-        pet.setUsuarioList(Arrays.asList(usuario));
+        pet.setUsuarioList(Collections.singletonList(usuario));
 
         petRepository.save(pet);
 
