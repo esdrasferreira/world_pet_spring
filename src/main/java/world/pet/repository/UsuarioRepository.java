@@ -17,4 +17,16 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
               + "on (pet_world_jpa.usuarios.id = pet_world_jpa.pet_usuario.usuario_id)\n"
               + "where pet_id like :pet_id", nativeQuery = true)
   Usuario findUserByPetId(@Param("pet_id") Long id);
+
+
+  @Transactional
+  @Query(value = "select * from pet_world_jpa.usuarios where email like :email\n"
+          + "and senha like :senha", nativeQuery = true)
+  Usuario findUser(@Param("email") String email, @Param("senha") String senha);
+
+
+
+
+
+
 }

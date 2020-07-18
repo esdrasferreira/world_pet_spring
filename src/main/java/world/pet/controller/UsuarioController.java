@@ -32,6 +32,7 @@ public class UsuarioController {
         return mv;
     }
 
+
     @GetMapping("editar/{id}")
     public ModelAndView editar(ModelAndView mv, @PathVariable Long id){
         Optional<Usuario> usuario = usuarioRepository.findById(id);

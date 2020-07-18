@@ -20,6 +20,10 @@ public class Usuario {
 
     private String usuarioNome;
 
+    private String email;
+
+    private String senha;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate idade;
 

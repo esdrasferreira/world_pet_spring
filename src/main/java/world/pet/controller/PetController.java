@@ -9,6 +9,7 @@ import world.pet.model.Usuario;
 import world.pet.repository.PetRepository;
 import world.pet.repository.UsuarioRepository;
 
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -24,12 +25,29 @@ public class PetController {
 
 
     @GetMapping
-    public ModelAndView listar(ModelAndView mv){
+    public ModelAndView home(ModelAndView mv){
 
         Iterable<Pet> petIterable = petRepository.findAll();
 
         mv.addObject("pets",petIterable);
-        mv.setViewName("pets/all");
+        mv.setViewName("pets/home");
+        return mv;
+    }
+
+    @GetMapping("/listar")
+    public ModelAndView listar(ModelAndView mv, HttpSession session){
+
+
+        if(session.getAttribute("usuario") == null){
+
+            return new ModelAndView("redirect:/pets");
+    } else {
+
+      Iterable<Pet> petIterable = petRepository.findAll();
+
+      mv.addObject("pets", petIterable);
+      mv.setViewName("pets/all");
+        }
         return mv;
     }
 
