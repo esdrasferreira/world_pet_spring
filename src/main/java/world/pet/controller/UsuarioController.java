@@ -48,7 +48,7 @@ public class UsuarioController {
 
 
         usuarioRepository.save(usuario);
-        return new ModelAndView("redirect:/usuarios");
+        return new ModelAndView("redirect:/login");
     }
 
     @GetMapping("excluir/{id}")

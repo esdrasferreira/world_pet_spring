@@ -26,7 +26,7 @@ public class AdocaoController {
     @Autowired
     private AdocaoRepository adocaoRepository;
 
-    @GetMapping("/cadastrar/{id}")
+    @GetMapping("/adotar/{id}")
     public ModelAndView cadastrar(ModelAndView mv, @PathVariable Long id){
         Iterable<Usuario>usuarioIterable = usuarioRepository.findAll();
         mv.addObject("usuarios", usuarioIterable); //envio todos os usuarios
@@ -58,7 +58,7 @@ public class AdocaoController {
         pet1.setUsuarioId(usuario_id);
         petRepository.save(pet1);
 
-        return new ModelAndView("redirect:/pets");
+        return new ModelAndView("redirect:/pets/listar");
     }
 
 

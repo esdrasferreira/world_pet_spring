@@ -58,7 +58,7 @@ public class PetController {
 
         Iterable<Pet> petIterable = petRepository.findAll();
         mv.addObject("pets",petIterable);
-        mv.setViewName("pets/list");
+        mv.setViewName("pets/meus");
         return mv;
     }
 
@@ -73,7 +73,7 @@ public class PetController {
 
         Iterable<Pet> petIterable = petRepository.findAllPetsById(usuario_id);
         mv.addObject("pets",petIterable);
-        mv.setViewName("pets/list");
+        mv.setViewName("pets/meus");
         return mv;
     }
 
@@ -114,7 +114,7 @@ public class PetController {
 
         petRepository.save(pet);
 
-        return new ModelAndView("redirect:/pets");
+        return new ModelAndView("redirect:/pets/listar");
     }
 
     @GetMapping("excluir/{id}")
@@ -123,7 +123,7 @@ public class PetController {
         pet.setPetId(id);
         petRepository.delete(pet);
 
-        return new ModelAndView("redirect:/pets");
+        return new ModelAndView("redirect:/pets/listar");
     }
 
 }

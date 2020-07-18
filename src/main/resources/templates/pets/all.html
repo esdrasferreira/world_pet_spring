@@ -25,7 +25,7 @@
             <a class="nav-link active" href="/pets/meus_pets">Meus_Pets</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="/pets">List_Pets</a>
+            <a class="nav-link active" href="/pets/listar">List_Pets</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/pets/cadastrar">Cadastro_Pets</a>
@@ -34,10 +34,7 @@
             <a class="nav-link active" href="/usuarios">Usuários</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/usuarios/cadastrar">Cadastro-usuários</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/login/logout">Logout</a>
         </li>
     </ul>
 </nav>
@@ -69,7 +66,7 @@
                 <td th:text="${pet.usuarioNome}"></td>
 
                 <td><a th:href="@{ /pets/detalhes/{id} (id=${{pet.petId}}) }" th:text="Detalhes"></a></td>
-                <td><a class="btn btn-outline-primary" role="button" th:href="@{/adocao/cadastrar/{id} (id=${{pet.petId}}) }" th:text="Adotar">Link</a></td>
+                <td><a class="btn btn-outline-primary" role="button" th:href="@{/adocao/adotar/{id} (id=${{pet.petId}}) }" th:text="Adotar">Link</a></td>
             </tr>
         </form>
     </tbody>
