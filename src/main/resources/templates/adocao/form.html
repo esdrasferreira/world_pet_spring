@@ -49,19 +49,10 @@
             <label class="col-md-auto col-form-label">
                 <h5 class="card-title">Usuário:</h5>
             </label>
-            <div class="col-auto">
-                <label>
-                    <select  class="custom-select" name="usuario_id" id="usuario_id">
 
-                            <option
-                                    th:each="usuario: ${usuarios}"
-                                    th:value="${usuario.usuarioId}" th:text="${usuario.usuarioNome}"
-
-                            ></option>
-
-                    </select>
-                </label>
-            </div>
+            <label class="col-md-auto col-form-label">
+               <h5 th:text="${usuario.usuarioNome}"></h5>
+            </label>
         </div>
 
         <div class="card" style="width: 18rem;">

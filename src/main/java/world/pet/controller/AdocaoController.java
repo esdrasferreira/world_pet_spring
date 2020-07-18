@@ -11,6 +11,7 @@ import world.pet.repository.AdocaoRepository;
 import world.pet.repository.PetRepository;
 import world.pet.repository.UsuarioRepository;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 
 @Controller
@@ -27,9 +28,15 @@ public class AdocaoController {
     private AdocaoRepository adocaoRepository;
 
     @GetMapping("/adotar/{id}")
-    public ModelAndView cadastrar(ModelAndView mv, @PathVariable Long id){
-        Iterable<Usuario>usuarioIterable = usuarioRepository.findAll();
-        mv.addObject("usuarios", usuarioIterable); //envio todos os usuarios
+    public ModelAndView cadastrar(ModelAndView mv, @PathVariable Long id, HttpSession session){
+//        Iterable<Usuario>usuarioIterable = usuarioRepository.findAll();
+//        mv.addObject("usuarios", usuarioIterable); //envio todos os usuarios
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+    System.out.println("xxxxxxxxxxx usuario da sessão: "+ usuario.getUsuarioNome());
+
+        mv.addObject("usuario", usuario);
+
 
         Pet pet = petRepository.getOne(id);
         mv.addObject("pet",pet);
