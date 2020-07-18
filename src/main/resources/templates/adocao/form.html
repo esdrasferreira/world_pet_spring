@@ -43,7 +43,7 @@
     <form action="#" method="post" th:action="@{/adocao/salvar}" th:object="${pet}">
 
         <input type="hidden" name="id" id="id" th:field="*{petId}">
-
+        <input type="hidden" name="usuario_id" id="usuario_id" th:value="${usuario.usuarioId}">
 
         <div class="form-group row">
             <label class="col-md-auto col-form-label">
